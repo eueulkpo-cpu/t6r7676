@@ -1,0 +1,1 @@
+- [x] Step 1: Edit enginebundle.js (add control methods)\n- [ ] Step 2: Edit index.html (wire UI)\n- [ ] Step 3: Test (touch, toggles, inject)\n
