@@ -1,0 +1,24 @@
+{
+  "name": "Gringozin FF - Aim Sensitivity Engine",
+  "short_name": "AimEngine",
+  "description": "PWA para otimizar sensibilidade e mira fluida no Android/Samsung. Curvas Bezier, trava de pixels, redução de ruído de toque.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d15",
+  "theme_color": "#8e2de2",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["games", "utilities"],
+  "lang": "pt-br"
+}
