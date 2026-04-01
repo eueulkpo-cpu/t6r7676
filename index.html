@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Login Gringozin FF</title>
+    <style>
+        :root {
+            --bg-color: #0b0a12;
+            --card-bg: rgba(17, 15, 26, 0.95);
+            --primary-glow: #bc13fe;
+            --accent-pink: #d42ad3;
+            --text-gray: #a0a0a0;
+            --btn-red: #b0003a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top right, #25103f 0%, #0b0a12 60%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(188, 19, 254, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 360px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+
+        .hidden { display: none; }
+
+        h2 { font-size: 24px; margin-bottom: 25px; }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            background: rgba(40, 38, 50, 0.5);
+            border: 1px solid #444;
+            border-radius: 12px;
+            color: white;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .btn-entrar {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #b316f1, #e622b7);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(230, 34, 183, 0.4);
+            font-size: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .engine-status { margin-bottom: 20px; }
+        .engine-status span { color: #4caf50; font-weight: bold; font-size: 14px; }
+
+        .function-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+        }
+
+        .icon-box {
+            width: 38px; height: 38px;
+            margin-right: 12px;
+            display: flex; justify-content: center; align-items: center;
+            border: 1px solid var(--accent-pink);
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .info { flex-grow: 1; }
+        .info h3 { margin: 0; font-size: 14px; }
+        .info p { margin: 0; font-size: 11px; color: var(--text-gray); }
+
+        .switch { position: relative; width: 34px; height: 18px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #333; transition: .4s; border-radius: 20px;
+        }
+        .slider:before {
+            position: absolute; content: ""; height: 12px; width: 12px;
+            left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%;
+        }
+        input:checked + .slider { background: var(--accent-pink); }
+        input:checked + .slider:before { transform: translateX(16px); }
+
+        .btn-open {
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: var(--btn-red);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div id="login-card" class="card">
+            <h2>Digite sua Key</h2>
+            <input type="text" id="key-input" placeholder="123456">
+            <button class="btn-entrar" onclick="checkKey()">Entrar</button>
+            <div class="footer-links">
+                <span style="color:#d42ad3">GRINGOZIN FF</span>
+                <span style="color:#a0a0a0">Admin</span>
+            </div>
+        </div>
+
+        <div id="functions-card" class="card hidden">
+            <div class="engine-status">
+                <div style="font-size: 24px;">⚙️</div>
+                <span>● Engine: 100%</span>
+            </div>
+
+            <div class="function-row">
+                <div class="icon-box">🎯</div>
+                <div class="info"><h3>Controle de Recuo</h3><p>Reduz o recuo da arma</p></div>
+                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+            </div>
+
+            <div class="function-row">
+                <div class="icon-box">⚙️</div>
+                <div class="info"><h3>Ajuste Sensibilidade</h3><p>Otimiza a sensibilidade</p></div>
+                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+            </div>
+
+            <div class="function-row">
+                <div class="icon-box">📱</div>
+                <div class="info"><h3>Otimização de Toque</h3><p>Melhora resposta do toque</p></div>
+                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+            </div>
+
+            <div class="function-row">
+                <div class="icon-box">🛡️</div>
+                <div class="info"><h3>Estabilidade de Mira</h3><p>Estabiliza a mira</p></div>
+                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+            </div>
+
+            <button class="btn-open">▶ ABRIR FREE FIRE</button>
+        </div>
+    </div>
+
+    <script>
+        function checkKey() {
+            const key = document.getElementById('key-input').value.trim();
+            if (key === '123456') {
+                document.getElementById('login-card').style.display = 'none';
+                document.getElementById('functions-card').classList.remove('hidden');
+                document.getElementById('functions-card').style.display = 'block';
+                console.log('Senha correta! Funções liberadas.');
+            } else {
+                alert('Senha errada! Use: 123456');
+            }
+        }
+
+        // Enter key support
+        document.getElementById('key-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkKey();
+        });
+
+        console.log('Test login ready. Senha: 123456');
+    </script>
+</body>
+</html>
