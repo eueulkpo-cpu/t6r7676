@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#09090f">
+  <meta name="description"
+        content="Personalize sua configuração de sensibilidade.">
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon.svg">
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Sensi Control</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">SC</span>
+        <div>
+          <h1>Sensi Control</h1>
+          <p>Seu ajuste, seu controle.</p>
+        </div>
+      </div>
+      <span class="status">ONLINE</span>
+    </header>
+
+    <section class="card">
+      <span class="eyebrow">CONFIGURAÇÃO PERSONALIZADA</span>
+      <h2>Encontre sua sensi</h2>
+      <p class="description">
+        Ajuste os valores e teste uma configuração
+        que combine com você.
+      </p>
+
+      <label for="device">Seu aparelho</label>
+      <select id="device">
+        <option value="android">Android</option>
+        <option value="iphone">iPhone</option>
+      </select>
+
+      <label for="current">Sensibilidade atual</label>
+      <div class="value-row">
+        <input id="current" type="range"
+               min="0" max="200" value="100">
+        <output id="currentValue">100</output>
+      </div>
+
+      <label for="target">Sensibilidade desejada</label>
+      <div class="value-row">
+        <input id="target" type="range"
+               min="0" max="200" value="150">
+        <output id="targetValue">150</output>
+      </div>
+
+      <label for="intensity">Intensidade do ajuste</label>
+      <div class="value-row">
+        <input id="intensity" type="range"
+               min="1" max="100" value="25">
+        <output id="intensityValue">25%</output>
+      </div>
+
+      <div class="result">
+        <span>Valor recomendado</span>
+        <strong id="result">112.5</strong>
+        <small>Teste o resultado no jogo.</small>
+      </div>
+
+      <button id="save">Salvar configuração</button>
+      <p id="message" role="status"></p>
+    </section>
+
+    <section class="card">
+      <div class="history-heading">
+        <h2>Histórico</h2>
+        <button id="clear" class="secondary">
+          Limpar
+        </button>
+      </div>
+      <div id="history">
+        <p class="empty">Nenhum ajuste salvo.</p>
+      </div>
+    </section>
+
+    <footer>
+      Sensi Control · Android e iOS
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
